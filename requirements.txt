@@ -1,0 +1,4 @@
+jwt
+psycopg2
+requests
+setuptools
