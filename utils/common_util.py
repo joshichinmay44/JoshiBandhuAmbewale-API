@@ -9,6 +9,7 @@ import requests
 import uuid
 from psycopg2 import sql
 from psycopg2.extras import json
+import jwt
 
 class common_utilities:
     def __init__(self):
@@ -63,7 +64,24 @@ class common_utilities:
             return conn
         except Exception as e:
             raise Exception(f"Error reading config file: {e}")
-
+        
+    def generate_jwt(self,password):
+        try:
+            config=self.read_config_file()
+            key=config['shared_key_jwt']
+            dict_pass={'password':password}
+            return jwt.encode(dict_pass, key, algorithm='HS256')
+        except Exception as e:
+            raise Exception(f"Error generating JWT: {e}")
+        
+    def decode_jwt(self,token):
+        try:
+            config=self.read_config_file()
+            key=config['shared_key_jwt']
+            decoded=jwt.decode(token, key, algorithms=['HS256'])
+            return decoded['password']
+        except Exception as e:
+            raise Exception(f"Error validating JWT: {e}")
 
     def fetch_data_from_source(self, sub_domain):
         try:

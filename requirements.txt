@@ -1,4 +1,6 @@
-jwt
+pyjwt
 psycopg2
 requests
 setuptools
+fastapi[standard]
+passlib[bcrypt]
