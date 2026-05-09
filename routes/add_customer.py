@@ -20,7 +20,7 @@ async def add_customer(first_name: str =Body(), last_name: str =Body(), email: s
         print("Received data:", first_name, last_name, email, phone_number_calling, phone_number_whatsapp, customer_type, customer_mode, created_by)
         username=created_by
         cursor = conn.cursor()
-        cursor.execute("CALL dim.usp_insert_new_user(%s::varchar, %s::varchar, %s::varchar, %s::varchar, %s::varchar, %s::varchar, %s::varchar, %s::varchar);", (first_name, last_name, email, phone_number_calling, phone_number_whatsapp, customer_type, customer_mode, created_by))
+        cursor.execute("CALL dim.usp_insert_new_customer(%s::varchar, %s::varchar, %s::varchar, %s::varchar, %s::varchar, %s::varchar, %s::varchar, %s::varchar);", (first_name, last_name, email, phone_number_calling, phone_number_whatsapp, customer_type, customer_mode, created_by))
         cursor.close()
         return {"message": "User added successfully", "status": "success"}
     except Exception as e:
