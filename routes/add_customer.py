@@ -1,9 +1,9 @@
 from utils import common_util
 from fastapi import FastAPI, Depends, HTTPException, APIRouter, Body
-from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
+from fastapi.security import OAuth2PasswordBearer
 import logging
 
-router = APIRouter(prefix="/customer", tags=["add_user"])
+router = APIRouter(prefix="/customer", tags=["add_customer"])
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
