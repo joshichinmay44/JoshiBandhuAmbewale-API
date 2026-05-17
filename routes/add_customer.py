@@ -28,4 +28,5 @@ async def add_customer(first_name: str =Body(), last_name: str =Body(), email: s
         cursor.close()
         return {"message": "User added successfully", "status": "success"}
     except Exception as e:
+        print(str(e))
         raise HTTPException(status_code=400, detail=str(e))
