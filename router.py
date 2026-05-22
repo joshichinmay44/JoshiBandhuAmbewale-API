@@ -7,6 +7,8 @@ from routes import update_customer
 from routes import add_user
 from routes import get_pin_codes
 from routes import add_vendor
+from routes import get_vendors
+from routes import update_vendor
 
 app = FastAPI()
 
@@ -18,6 +20,8 @@ app.include_router(update_customer.router)
 app.include_router(add_user.router)
 app.include_router(get_pin_codes.router)
 app.include_router(add_vendor.router)
+app.include_router(get_vendors.router)
+app.include_router(update_vendor.router)
 
 @app.get("/")
 def home():
