@@ -1,14 +1,14 @@
 # main.py
 from fastapi import FastAPI
-from routes import authenticator
-from routes import add_customer
-from routes import get_customers
-from routes import update_customer
-from routes import add_user
-from routes import get_pin_codes
-from routes import add_vendor
-from routes import get_vendors
-from routes import update_vendor
+from routes.Admin import authenticator
+from routes.Customer import add_customer
+from routes.Customer import get_customers
+from routes.Customer import update_customer
+from routes.Admin import add_user
+from routes.GenericAPIs import get_pin_codes
+from routes.Vendor import add_vendor
+from routes.Vendor import get_vendors
+from routes.Vendor import update_vendor
 
 app = FastAPI()
 
