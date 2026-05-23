@@ -221,4 +221,4 @@ __marimo__/
 __pycache__/router.cpython-314.pyc
 routes/__pycache__/authenticator.cpython-314.pyc
 __pycache__/router.cpython-314.pyc
-routes/__pycache__/authenticator.cpython-314.pyc
+routes/__pycache__/*
