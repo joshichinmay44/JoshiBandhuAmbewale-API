@@ -1,9 +1,14 @@
 # main.py
 from fastapi import FastAPI
-from routes import authenticator
-from routes import add_customer
-from routes import get_customers
-from routes import update_customer
+from routes.Admin import authenticator
+from routes.Customer import add_customer
+from routes.Customer import get_customers
+from routes.Customer import update_customer
+from routes.Admin import add_user
+from routes.GenericAPIs import get_pin_codes
+from routes.Vendor import add_vendor
+from routes.Vendor import get_vendors
+from routes.Vendor import update_vendor
 
 app = FastAPI()
 
@@ -12,6 +17,11 @@ app.include_router(authenticator.router)
 app.include_router(add_customer.router)
 app.include_router(get_customers.router)
 app.include_router(update_customer.router)
+app.include_router(add_user.router)
+app.include_router(get_pin_codes.router)
+app.include_router(add_vendor.router)
+app.include_router(get_vendors.router)
+app.include_router(update_vendor.router)
 
 @app.get("/")
 def home():
