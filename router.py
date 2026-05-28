@@ -9,6 +9,9 @@ from routes.GenericAPIs import get_pin_codes
 from routes.Vendor import add_vendor
 from routes.Vendor import get_vendors
 from routes.Vendor import update_vendor
+from routes.SKU import add_sku
+from routes.SKU import get_skus
+from routes.SKU import update_sku
 
 app = FastAPI()
 
@@ -22,6 +25,9 @@ app.include_router(get_pin_codes.router)
 app.include_router(add_vendor.router)
 app.include_router(get_vendors.router)
 app.include_router(update_vendor.router)
+app.include_router(add_sku.router)
+app.include_router(get_skus.router)
+app.include_router(update_sku.router)
 
 @app.get("/")
 def home():
