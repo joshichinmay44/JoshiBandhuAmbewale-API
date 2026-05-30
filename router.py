@@ -12,6 +12,8 @@ from routes.Vendor import update_vendor
 from routes.SKU import add_sku
 from routes.SKU import get_skus
 from routes.SKU import update_sku
+from routes.Inventory import add_inventory
+from routes.Inventory import get_current_inventory
 
 app = FastAPI()
 
@@ -28,6 +30,9 @@ app.include_router(update_vendor.router)
 app.include_router(add_sku.router)
 app.include_router(get_skus.router)
 app.include_router(update_sku.router)
+app.include_router(add_inventory.router)
+app.include_router(get_current_inventory.router)
+
 
 @app.get("/")
 def home():
