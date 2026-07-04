@@ -16,9 +16,9 @@ async def get_bookings(id: int | None = None):
         logging.info("Starting get_bookings process")
         cursor = conn.cursor()
         if id:
-            cursor.execute("select * from dm.get_bookings() where booking_id = %s;", (id,))
+            cursor.execute("select * from dm.usp_get_bookings() where booking_id = %s;", (id,))
         else:
-            cursor.execute("select * from dm.get_bookings();")
+            cursor.execute("select * from dm.usp_get_bookings();")
         result = cursor.fetchall()
         cursor.close()
         return {"bookings": result}
